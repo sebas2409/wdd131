@@ -1,4 +1,11 @@
-const gallery = document.querySelector('.gallery');
+const mobileMenu = document.querySelector('.mobile-menu');
+const desktopMenu = document.querySelector('.desktop-menu');
+
+mobileMenu.addEventListener('click', () => {
+    desktopMenu.classList.toggle('show');
+});
+
+const gallery = document.querySelector('.images');
 const modal = document.querySelector('dialog');
 const modalImage = modal.querySelector('img');
 const closeButton = modal.querySelector('.close-viewer');

@@ -24,6 +24,7 @@ nav {
 
 nav a {
     color: white;
+    text-decoration: none;
 }
 
 main {
@@ -57,6 +58,34 @@ footer {
     background-color: #337ab7;
     color: white;
     padding: 10px;
+}
+
+.show {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* modal */
+
+dialog img {
+    width: 90%;
+    display: block;
+    margin: 20vh auto;
+}
+
+dialog {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .75);
+}
+
+.close-viewer {
+    position: absolute;
+    top: 10vh;
+    right: 2vh;
+    padding: 3px 6px;
+    font-size: 1.5em;
 }
 
 
