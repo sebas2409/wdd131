@@ -4,12 +4,6 @@ menuButton.addEventListener("click", (e) => {
     menu.classList.toggle('hide');
     menuButton.classList.toggle('change');
 
-    menu.style.display = 'flex';
-    menu.style.flexDirection = 'column';
-    menu.style.alignItems = 'center';
-    menu.style.justifyContent = 'center';
-
-    //each a fit hole width div
-    menu.style.width = '100%';
+    menu.classList.toggle('vertical');
 
 })

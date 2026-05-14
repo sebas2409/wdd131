@@ -56,6 +56,14 @@ nav a:hover {
     margin: 5px 0;
 }
 
+.vertical {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
 footer {
     text-align: center;
 }
