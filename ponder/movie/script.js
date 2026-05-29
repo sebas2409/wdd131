@@ -1,4 +1,4 @@
-const articles = [
+const movies = [
     {
         title: "Spider-Man: Into the Spider-Verse",
         date: "Dec 14, 2018",
@@ -41,29 +41,8 @@ const articles = [
     }
 ];
 
-articles.forEach(article => {
+movies.forEach(movie => {
 
-    const blog = `
-            
-    <aside class="review-meta">
-        <p class="date">${article.date}</p>
-        <p class="age-rating">${article.ages}</p>
-        <p class="genre">${article.genre}</p>
-        <div class="stars">${article.stars}</div>
-    </aside>
 
-    <article class="review-content">
-        <h2 class="book-title">${article.title}</h2>
-            
-        <div class="book-cover-wrapper">
-            <img src="${article.imgSrc}" alt="${article.imgAlt}" class="book-cover">
-        </div>
-
-        <p class="book-description">
-            ${article.description}
-        </p>
-        </article>
-    `
-    document.getElementById('book-list').innerHTML += blog;
 
 });
