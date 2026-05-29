@@ -55,9 +55,14 @@ const fruits = ["Banana", "Orange", "Apple", "Mango"];
 let index = fruits.indexOf("Apple");
 console.log(index);
 
-const name = "Efrain";
-const age = 20;
+const name = "Sebastian";
+const age = 28;
 
 const greeting = `Hi, my name is ${name} and I am ${age} years old.`;
 
 console.log(greeting);
+
+
+const listDiv = document.getElementById("list");
+const listItems = names.map((name) => `<li>${name}</li>`).join("");
+listDiv.innerHTML = `<ul>${listItems}</ul>`;
