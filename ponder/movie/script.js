@@ -41,8 +41,26 @@ const movies = [
     }
 ];
 
+
+const movieList = document.getElementById("movie-list");
+
 movies.forEach(movie => {
 
+    const movieCard = document.createElement("article");
+    movieCard.classList.add("movie");
 
 
+    movieCard.innerHTML = `
+        <h2>${movie.title}</h2>
+        <img src="${movie.imgSrc}" alt="${movie.imgAlt}">
+        <ul class="movie-details">
+            <li><strong>Release Date:</strong> ${movie.date}</li>
+            <li><strong>Genre:</strong> ${movie.genre}</li>
+            <li><strong>Age Rating:</strong> ${movie.ages}</li>
+            <li><strong>Rating:</strong> ${movie.stars}</li>
+        </ul>
+        <p id="desc">${movie.description}</p>
+    `;
+
+    movieList.appendChild(movieCard);
 });
