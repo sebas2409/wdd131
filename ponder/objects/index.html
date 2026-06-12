@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <meta name="description" content="An in-depth guide to HTML meta tags.">
+    <meta name="author" content="Seb">
+    <title>Objects</title>
+    <style>
+        body {
+            background-color: #ddd;
+            font-size: 20px;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #035f9c;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #035f9c;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #024c7d;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        #courseName {
+            color: #035f9c;
+        }
+
+        #courseCode {
+            color: #024c7d;
+        }
+
+        #sections {
+            border-collapse: collapse;
+        }
+
+        #sections th, #sections td {
+            border: 1px solid #ddd;
+        }
+
+        #sections th {
+            background-color: #f2f2f2;
+        }
+
+        #sections tr:hover {
+            background-color: #ddd;
+        }
+
+        #sections td {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1 id="courseName"></h1>
+<h2 id="courseCode"></h2>
+<label for="sectionNumber">Section Number</label>
+<input id="sectionNumber"/>
+<button id="enrollStudent">Enroll Student</button>
+<table>
+    <thead>
+    <tr>
+        <th>Section#</th>
+        <th>Room#</th>
+        <th>#Enrolled</th>
+        <th>Days</th>
+        <th>Instructor</th>
+    </tr>
+    </thead>
+    <tbody id="sections"></tbody>
+</table>
+
+</body>
+</html>
