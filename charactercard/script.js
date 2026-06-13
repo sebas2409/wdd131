@@ -9,7 +9,6 @@ const character = {
         document.getElementById('charClass').innerText = this.charClass;
         document.getElementById('charLevel').innerText = this.level;
         document.getElementById('charHealth').innerText = this.health;
-        document.getElementById('charImage').src = this.image;
     },
 
 
@@ -27,7 +26,6 @@ const character = {
         }
     },
 
-    // Método para subir de nivel
     levelUp: function () {
         if (this.health > 0) {
             this.level += 1;
