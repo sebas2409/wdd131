@@ -286,55 +286,115 @@ function getRandomeRecipe() {
     return recipes[randomIndex];
 }
 
-function fillRecipeCard(recipe) {
 
-    const img = document.getElementById("recipe-image");
-    img.src = recipe.image;
+// <main>
+//     <article className="recipe-card">
+//         <div className="recipe-image-container">
+//             <img
+//                 id="recipe-image"
+//                 alt="Apple Crisp in a white bowl"/>
+//         </div>
+//         <div className="recipe-content">
+//             <div className="tag-container">
+//                 <span className="tag">dessert</span>
+//             </div>
+//             <h2 id="recipe-name">APPLE CRISP</h2>
+//             <span className="rating" role="img" aria-label="Rating: 4 out of 5 stars">
+//                 <span aria-hidden="true" className="icon-star">⭐</span>
+//                 <span aria-hidden="true" className="icon-star">⭐</span>
+//                 <span aria-hidden="true" className="icon-star">⭐</span>
+//                 <span aria-hidden="true" className="icon-star">⭐</span>
+//                 <span aria-hidden="true" className="icon-star-empty">☆</span>
+//             </span>
+//             <p className="description">This apple crisp recipe is a simple yet delicious fall dessert that's great
+//                 served
+//                 warm with vanilla ice cream.</p>
+//         </div>
+//     </article>
+// </main>
 
-    const tagContainer = document.getElementsByClassName("tag-container")[0];
-    tagContainer.innerHTML = "";
-    recipe.tags.forEach(tag => {
-        const span = document.createElement("span");
-        span.className = "tag";
-        span.textContent = tag;
-        tagContainer.appendChild(span);
-    });
+function fillRecipeCard(recipes) {
+    const main = document.getElementsByTagName("main")[0];
 
-    const recipeName = document.getElementById("recipe-name");
-    recipeName.textContent = recipe.name;
+    recipes.forEach((recipe) => {
+        const article = document.createElement("article");
+        article.className = "recipe-card";
 
-    const rating = recipe.rating;
-    const ratingContainer = document.getElementsByClassName("rating")[0];
-    ratingContainer.innerHTML = "";
-    for (let i = 0; i < 5; i++) {
-        const starSpan = document.createElement("span");
-        if (i < rating) {
-            starSpan.className = "icon-star";
-            starSpan.textContent = "⭐";
-        } else {
-            starSpan.className = "icon-star-empty";
-            starSpan.textContent = "☆";
+        const imageContainer = document.createElement("div");
+        imageContainer.className = "recipe-image-container";
+
+        const img = document.createElement("img");
+        img.id = "recipe-image";
+        img.alt = recipe.name;
+        img.src = recipe.image;
+
+        imageContainer.appendChild(img);
+        article.appendChild(imageContainer);
+
+        const contentContainer = document.createElement("div");
+        contentContainer.className = "recipe-content";
+
+        const tagContainer = document.createElement("div");
+        tagContainer.className = "tag-container";
+        recipe.tags.forEach(tag => {
+            const span = document.createElement("span");
+            span.className = "tag";
+            span.textContent = tag;
+            tagContainer.appendChild(span);
+        });
+
+        const recipeName = document.createElement("h2");
+        recipeName.id = "recipe-name";
+        recipeName.textContent = recipe.name;
+
+        const ratingContainer = document.createElement("span");
+        ratingContainer.className = "rating";
+        ratingContainer.setAttribute("role", "img");
+        ratingContainer.setAttribute("aria-label", `Rating: ${recipe.rating} out of 5 stars`);
+        for (let i = 0; i < 5; i++) {
+            const starSpan = document.createElement("span");
+            if (i < recipe.rating) {
+                starSpan.className = "icon-star";
+                starSpan.textContent = "⭐";
+            } else {
+                starSpan.className = "icon-star-empty";
+                starSpan.textContent = "☆";
+            }
+            ratingContainer.appendChild(starSpan);
         }
-        ratingContainer.appendChild(starSpan);
-    }
 
-    const description = document.getElementsByClassName("description")[0];
-    description.textContent = recipe.description;
+        const description = document.createElement("p");
+        description.className = "description";
+        description.textContent = recipe.description;
 
+        contentContainer.appendChild(tagContainer);
+        contentContainer.appendChild(recipeName);
+        contentContainer.appendChild(ratingContainer);
+        contentContainer.appendChild(description);
+
+        article.appendChild(contentContainer);
+        main.appendChild(article);
+    })
 }
 
 const input = document.getElementById("searchInput");
 const btn = document.getElementById("searchBtn");
 
 btn.addEventListener("click", () => {
+    const main = document.getElementsByTagName("main")[0];
+    main.innerHTML = "";
     const inputValue = input.value;
 
-    recipes.forEach(recipe => {
+    let filter = recipes.filter(recipe => {
         if (recipe.name.toLowerCase().includes(inputValue.toLowerCase())) {
-            fillRecipeCard(recipe);
+            return recipe;
         }
     });
+
+    if (filter.length > 0) {
+        fillRecipeCard(filter);
+    }
 });
 
 const recipe = getRandomeRecipe();
-fillRecipeCard(recipe);
+fillRecipeCard([recipe]);
