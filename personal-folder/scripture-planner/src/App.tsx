@@ -184,7 +184,7 @@ function App() {
                     </div>
 
                     <div className="hero-visual">
-                        <img src="/header1.png" alt="Scriptures and a study notebook on a sunlit table"/>
+                        <img src="/header1.webp" alt="Scriptures and a study notebook on a sunlit table"/>
                         <div className="hero-image-label">
                             <span>Today’s invitation</span>
                             <strong>Study · Ponder · Apply</strong>
