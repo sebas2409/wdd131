@@ -364,7 +364,7 @@ function App() {
                 <p className="footer-verse">“Thy word is a lamp unto my feet, and a light unto my path.” <span>Psalm 119:105</span>
                 </p>
                 <div className="footer-meta">
-                    <span>Made for meaningful daily study.</span>
+                    <span>Created by Juan Sebastian Gonzalez Lopez.</span>
                     <span>© {new Date().getFullYear()}</span>
                 </div>
             </footer>
